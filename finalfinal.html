@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOGUE INSPIRED | Fashion Trends 2025</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#f8f8f8;
+  color:#111
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:white;
+  border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:1000
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:4px
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px
+}
+.nav-links a{
+  text-decoration:none;
+  color:black;
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase
+}
+.nav-links a:hover{
+  border-bottom:1px solid black
+}
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer
+}
+
+/* HERO */
+header{
+  height:100vh;
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  url("voguebann.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.hero-text{
+  text-align:center;
+  color:white
+}
+.hero-text h1{
+  font-family:'Playfair Display',serif;
+  font-size:4.5rem;
+  letter-spacing:6px
+}
+.hero-text p{
+  margin-top:15px;
+  letter-spacing:2px
+}
+
+/* SECTIONS */
+section{
+  padding:80px 8%;
+  scroll-margin-top:100px
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  text-align:center;
+  margin-bottom:50px
+}
+
+/* GRID + CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px
+}
+.card{
+  background:white;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .6s ease, box-shadow .6s ease
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,.12)
+}
+.card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  transition:transform .6s ease
+}
+.card:hover img{
+  transform:scale(1.08)
+}
+.card-content{
+  padding:25px
+}
+.card-content h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:10px;
+  font-size:1.4rem
+}
+.card-content p{
+  font-size:.95rem;
+  color:#444;
+  line-height:1.6
+}
+
+/* EDITORIAL */
+.editorial{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center
+}
+.editorial img{
+  width:100%;
+  height:550px;
+  object-fit:cover
+}
+.editorial-text h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  margin-bottom:20px
+}
+.editorial-text p{
+  line-height:1.8;
+  color:#333
+}
+
+/* POPUP — NO FONT OVERRIDE */
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000
+}
+.popup-overlay.active{
+  display:flex
+}
+.popup-content{
+  background:white;
+  padding:50px 45px;
+  max-width:520px;
+  text-align:center;
+  position:relative
+}
+.popup-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  letter-spacing:2px;
+  margin-bottom:20px
+}
+.popup-content p{
+  font-size:1rem;
+  line-height:1.8;
+  color:#333
+}
+.close-popup{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer
+}
+
+/* ABOUT */
+.about-text{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  line-height:1.8;
+  color:#333;
+  font-size:1rem
+}
+
+/* NEWSLETTER */
+.newsletter{
+  background:white;
+  padding:60px;
+  max-width:700px;
+  margin:50px auto;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.06)
+}
+.newsletter h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:15px
+}
+.newsletter input{
+  padding:12px;
+  width:70%;
+  border:1px solid #ccc;
+  margin-top:15px
+}
+.newsletter button{
+  padding:12px 25px;
+  border:none;
+  background:black;
+  color:white;
+  cursor:pointer;
+  margin-left:5px
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:50px 20px
+}
+.social-icons a{
+  color:white;
+  margin:0 15px;
+  font-size:1.3rem
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .menu-toggle{display:block}
+  .nav-links{
+    position:absolute;
+    top:80px;
+    right:0;
+    background:white;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    display:none
+  }
+  .nav-links.active{display:flex}
+  .editorial{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">VOGUE</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#trends">Trends</a></li>
+    <li><a href="#editorial">Editorial</a></li>
+    <li><a href="#runway">Runway</a></li>
+    <li><a href="#accessories">Accessories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <div class="hero-text">
+    <h1>VOGUE</h1>
+    <p>FASHION TRENDS 2025</p>
+  </div>
+</header>
+
+<!-- TRENDS -->
+<section id="trends">
+<h2 class="section-title">Top Trends 2025</h2>
+<div class="grid">
+
+<div class="card" data-title="Sheer Elegance" data-info="Transparency, layering and ethereal silhouettes define sheer elegance in 2025.">
+<img src="sheerelegance.jpg">
+<div class="card-content"><h3>Sheer Elegance</h3></div>
+</div>
+
+<div class="card" data-title="Monochrome Power" data-info="Bold tailoring and sharp silhouettes redefine monochrome fashion.">
+<img src="monochrome.jpg">
+<div class="card-content"><h3>Monochrome Power</h3></div>
+</div>
+
+<div class="card" data-title="Modern Minimalism" data-info="Neutral palettes and clean cuts dominate modern wardrobes.">
+<img src="minimalism.jpg">
+<div class="card-content"><h3>Modern Minimalism</h3></div>
+</div>
+
+</div>
+</section>
+
+<!-- EDITORIAL -->
+<section id="editorial">
+<div class="editorial">
+<img src="runway.jpg">
+<div class="editorial-text">
+<h2>Runway Editorial</h2>
+<p>Inspired by Paris couture, this editorial reflects luxury, artistry and expressive fashion for 2025.</p>
+</div>
+</div>
+</section>
+
+<!-- RUNWAY -->
+<section id="runway">
+<h2 class="section-title">Runway Highlights</h2>
+<div class="grid">
+
+<div class="card" data-title="Paris Couture" data-info="Sculptural silhouettes and couture craftsmanship from Paris Fashion Week.">
+<img src="pc.jpg">
+<div class="card-content"><h3>Paris Couture</h3></div>
+</div>
+
+<div class="card" data-title="Milan Minimalism" data-info="Italian elegance defined by precision tailoring and luxury fabrics.">
+<img src="milan.jpg">
+<div class="card-content"><h3>Milan Minimalism</h3></div>
+</div>
+
+</div>
+</section>
+
+<!-- ACCESSORIES -->
+<section id="accessories">
+<h2 class="section-title">Accessories Edit</h2>
+<div class="grid">
+
+<div class="card" data-title="Statement Bags" data-info="Oversized silhouettes and bold textures dominate accessories in 2025.">
+<img src="bags.jpg">
+<div class="card-content"><h3>Statement Bags</h3></div>
+</div>
+
+<div class="card" data-title="Jewelry Revival" data-info="Gold tones, pearls and vintage-inspired jewelry make a comeback.">
+<img src="jewel.jpg">
+<div class="card-content"><h3>Jewelry Revival</h3></div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 class="section-title">About Vogue Inspired</h2>
+<p class="about-text">
+Vogue Inspired is a digital fashion magazine celebrating global runway trends,
+couture craftsmanship and modern luxury. Designed with elegance and editorial
+storytelling at its core.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="section-title">Contact & Connect</h2>
+<p style="text-align:center;line-height:2">
+Email: <strong>editor@vogueinspired.com</strong><br>
+Instagram: <strong>@vogueinspired</strong><br>
+Paris • Milan • New York
+</p>
+
+<div class="newsletter">
+<h3>Subscribe to Our Newsletter</h3>
+<p>Exclusive fashion updates & editorials</p>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+</section>
+
+<footer>
+<div>Follow Us</div>
+<div class="social-icons">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+<p style="font-size:.8rem">© 2025 Vogue Inspired • All Rights Reserved</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+<div class="popup-content">
+<span class="close-popup" id="closePopup">&times;</span>
+<h2 id="popup-title"></h2>
+<p id="popup-text"></p>
+</div>
+</div>
+
+<script>
+const toggle=document.getElementById("menu-toggle");
+const nav=document.getElementById("nav-links");
+toggle.onclick=()=>nav.classList.toggle("active");
+nav.querySelectorAll("a").forEach(a=>a.onclick=()=>nav.classList.remove("active"));
+
+const popup=document.getElementById("popup");
+const title=document.getElementById("popup-title");
+const text=document.getElementById("popup-text");
+
+document.querySelectorAll(".card").forEach(card=>{
+  card.onclick=()=>{
+    title.textContent=card.dataset.title;
+    text.textContent=card.dataset.info;
+    popup.classList.add("active");
+  }
+});
+
+document.getElementById("closePopup").onclick=()=>popup.classList.remove("active");
+popup.onclick=e=>e.target===popup&&popup.classList.remove("active");
+</script>
+
+</body>
+</html>
